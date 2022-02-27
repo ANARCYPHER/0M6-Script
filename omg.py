@@ -21,10 +21,14 @@ def setup():
 	return render_template("setup.html")    
  
 
-#ERROR 404, 500
+#ERROR 404, 403, 500
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template("404.html"), 404
+
+@app.errorhandler(403)
+def page_not_found(e):
+	return render_template("403.html"), 403
 
 @app.errorhandler(500)
 def page_not_found(e):
